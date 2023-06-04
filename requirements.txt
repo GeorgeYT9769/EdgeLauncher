@@ -1,0 +1,6 @@
+pip
+wheel
+setuptools
+pynput
+discordwebhook
+pywin32
