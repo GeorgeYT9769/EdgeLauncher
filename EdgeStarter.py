@@ -12,15 +12,9 @@ ICON_BIG = 1
 ICON_SMALL = 0
 WM_SETICON = 0x0080
 
-custom_icon_path = "edgestart.ico"
-hicon = ctypes.windll.user32.LoadImageW(None, custom_icon_path, ctypes.c_uint(1), 0, 0, ctypes.c_uint(0x00000010 | 0x00000020))
 hwnd = win32gui.GetForegroundWindow()
 win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
 win32gui.SetLayeredWindowAttributes(hwnd, 0, 128, win32con.LWA_ALPHA)
-
-hond = ctypes.windll.kernel32.GetConsoleWindow()
-ctypes.windll.user32.SendMessageW(hond, WM_SETICON, ICON_BIG, hicon)
-ctypes.windll.user32.SendMessageW(hond, WM_SETICON, ICON_SMALL, hicon)
 
 current_style = ctypes.windll.user32.GetWindowLongA(hwnd, GWL_EXSTYLE)
 new_style = current_style | WS_EX_LAYERED
